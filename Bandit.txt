@@ -1,0 +1,394 @@
+NIVEL 0
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+NIVEL 0 - 1
+ls -la
+cat readme
+
+NIVEL 1 - 2
+ssh bandit1@bandit.labs.overthewire.org -p 2220
+ls -alps
+cat ./-
+
+NIVEL 2 - 3
+ssh bandit2@bandit.labs.overthewire.org -p 2220
+ls -alps
+cat spaces\ in\ this\ filename
+
+NIVEL 3 - 4
+ssh bandit3@bandit.labs.overthewire.org -p 2220
+ls -alps
+cat inhere/.hidden
+
+NIVEL 4 - 5
+ssh bandit4@bandit.labs.overthewire.org -p 2220
+ls
+cd inhere/
+find . -type f | xargs file
+cat ./-file07
+
+NIVEL 5 - 6
+ssh bandit5@bandit.labs.overthewire.org -p 2220
+ls -alps
+cd inhere/
+find . -type f -size 1033c ! -executable
+cat ./maybehere07/.file2
+
+NIVEL 6 - 7
+ssh bandit6@bandit.labs.overthewire.org -p 2220
+ls
+find / -type f -user bandit7 -group bandit6 -size 33c
+cat /var/lib/dpkg/info/bandit7.password
+
+NIVEL 7 - 8
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+ls
+strings data.txt | grep "millionth"
+
+NIVEL 8 - 9
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+sort data.txt
+man uniq 
+sort data.txt | uniq -c
+
+NIVEL 9 - 10
+ssh bandit9@bandit.labs.overthewire.org -p 2220
+ls
+strings data.txt | grep "="
+
+NIVEL 10 - 11
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+cat data.txt
+man base64
+base64 -d data.txt 
+
+NIVEL 11 - 12
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+
+NIVEL 12 - 13
+cat data.txt
+man xxd 
+mkdir /tmp/cristhian
+cp data.txt /tmp/cristhian
+cd /tmp/cristhian
+ls
+
+xxd -r data.txt > data
+ls
+
+file data
+
+man gzip
+mv data file.gz
+gzip -d file.gz 
+ls
+file file
+
+mv file file.bz2
+man bzip2
+bzip2 -d file.bz2
+ls
+file file
+
+mv file file.gz
+gzip -d file.gz 
+ls
+file file
+
+mv file file.tar
+tar xf file.tar 
+ls
+
+file data5.bin
+rm file.tar
+rm data.txt
+
+//file data5.bin 
+ls
+file file 
+file data5.bin
+mv data5.bin data.tar
+tar xf data.tar 
+ls
+file data6.bin
+mv data6.bin data.bz2
+
+bzip2 -d data.bz2 
+ls
+file data
+
+mv data data.tar 
+ls
+
+tar xf data.tar 
+ls
+
+file data8.bin 
+mv data8.bin data.gz
+gzip -d data.gz
+
+ls
+file data
+
+cat data
+
+NIVEL 13 - 14
+ssh -i sshkey.private bandit14@localhost -p 2220
+cat /etc/bandit_pass/bandit14
+
+NIVEL 14 - 15
+//SEGUIMOS EN EL MISMO NIVEL
+nc localhost 30000
+[PASS]
+
+NIVEL 15 - 16
+cat /etc/bandit_pass/bandit15
+
+man nc | grep ssl
+man nc
+man ncat | grep ssl
+ncat --ssl localhost 30001
+
+
+NIVEL 16 - 17
+ssh bandit16@bandit.labs.overthewire.org -p 2220
+cat /etc/bandit_pass/bandit16
+nmap localhost -p 31000-32000
+nc localhost 31790
+vim key
+chmod 400 key
+
+
+NIVEL 17 - 18
+ssh -i key bandit17@bandit.labs.overthewire.org -p 2220
+bandit17@bandit:~$ man diff
+bandit17@bandit:~$ diff passwords.old passwords.new 
+
+NIVEL 18 - 19
+ssh bandit18@bandit.labs.overthewire.org -p 2220 
+man ssh | grep shell
+man ssh | grep terminal
+ssh -t bandit18@bandit.labs.overthewire.org -p 2220 /bin/sh
+
+ls
+cat readme 
+
+
+NIVEL 19 - 20
+ssh bandit19@bandit.labs.overthewire.org -p 2220
+ls
+./bandit20-do 
+./bandit20-do id
+./bandit20-do cat /etc/bandit_pass/bandit20
+
+NIVEL 20 - 21
+ls 
+cat /etc/bandit_pass/bandit20
+./suconnect 1234
+nmap -F localhost 
+exit
+
+//terminal 2
+ssh bandit20@bandit.labs.overthewire.org -p 2220
+cat /etc/bandit_pass/bandit20 | nc -l  -p 1234 &
+
+//terminal 1
+ssh bandit20@bandit.labs.overthewire.org -p 2220
+./suconnect 1234
+
+NIVEL 21 - 22
+ssh bandit21@bandit.labs.overthewire.org -p 2220
+vim /etc/cron.d/
+ls /etc/cron.d/
+cat /etc/cron.d/cronjob_bandit22
+cat /usr/bin/cronjob_bandit22.sh
+cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+NIVEL 22 - 23
+ssh bandit22@bandit.labs.overthewire.org -p 2220
+
+cat /etc/cron.d/cronjob_bandit23
+cat /usr/bin/cronjob_bandit23.sh
+whoami
+man md5sum
+bandit22@bandit:~$ echo I am user $myname | md5sum | cut -d ' ' -f 1
+cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+
+
+NIVEL 23 - 24
+ssh bandit23@bandit.labs.overthewire.org -p 2220
+ls
+cd /etc/cron.d
+ls
+cat cronjob_bandit24 
+cat /usr/bin/cronjob_bandit24.sh
+
+/etc/cron.d$ mkdir /tmp/cris123
+/etc/cron.d$ cd /tmp/cris123
+/tmp/cris123$ nano scrpt.sh
+
+cat scrpt.sh
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 > /tmp/cris123/password.txt
+
+ ls -l scrpt.sh 
+
+ chmod +x scrpt.sh 
+ls -l scrpt.sh 
+
+ ls -la
+
+chmod +w .
+ ls -la
+
+chmod 777 .
+ls -la
+
+cp scrpt.sh /var/spool/bandit24/foo/
+ls
+
+cp scrpt.sh /var/spool/bandit24/foo/
+ls
+cat password.txt 
+
+
+NIVEL 24 - 25
+ssh bandit24@bandit.labs.overthewire.org -p 2220
+cat /etc/bandit_pass/bandit24
+
+mkdir /tmp/gio
+cd /tmp/gio
+/tmp/gio$ vim bruteforcescript.sh
+
+cat bruteforcescript.sh
+#!/bin/bash
+for i in {6000..9999}
+do 
+	echo "VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar $i"
+done
+
+/tmp/gio$ chmod 700 bruteforcescript.sh 
+/tmp/gio$ ./bruteforcescript.sh > combinations.txt
+
+
+NIVEL 25 - 26
+ssh bandit25bandit.labs.overthewire.org -p 2220
+ls 
+file bandit26.sshkey 
+ssh -i ./bandit26.sshkey bandit26@localhost -p 2220
+clear 
+cat /etc/passwd
+file /usr/bin/showtext 
+cat /usr/bin/showtext 
+
+clear 
+ssh -i ./bandit26.sshkey bandit26@localhost -p 2220
+clear
+ssh -i ./bandit26.sshkey bandit26@localhost -p 2220
+!cat /etc/bandit_pass/bandit26
+v
+:e /etc/bandit_pass/bandit26
+
+NIVEL 26 - 27
+v
+:set shell?
+:set shell=/bin/bash
+:set shell?
+:shell
+ls
+./bandit27-do cat /etc/bandit_pass/bandit27
+
+NIVEL 27 - 28
+ssh bandit27bandit.labs.overthewire.org -p 2220
+cat /etc/bandit_pass/bandit27
+mkdir /tmp/go
+cd /tmp/go
+git clone ssh://bandit27-git@localhost/home/bandit27-git/repo 2220
+cd repo/
+ls
+cat README 
+
+NIVEL 28 - 29
+ssh bandit28bandit.labs.overthewire.org -p 2220
+ls
+id
+mkdir /tmp/geo
+cd /tmp/geo
+git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+ls
+cd repo/
+ls
+cat README.md 
+git log
+git checkout abcff758fa6343a0d002a1c0add1ad8c71b88534
+cat README.md 
+
+NIVEL 29 - 30
+ssh bandit29bandit.labs.overthewire.org -p 2220
+ls
+id
+mkdir /tmp/r
+cd /tmp/r
+git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
+ls
+cd repo/
+ls
+cat README.md 
+git log
+git checkout 1a57cf10158f133c4f40ff82251f605a7618631d
+cat README.md 
+git branch -a
+ls
+cat README.md 
+
+NIVEL 30 - 31
+ssh bandit30bandit.labs.overthewire.org -p 2220
+ls
+mkdir /tmp/cris
+cd /tmp/cris
+git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repo
+ls
+cd repo/
+ls
+cat README.md 
+git log
+git branch -a
+git tag
+git show secret 
+
+
+NIVEL 31 - 32
+ssh bandit31bandit.labs.overthewire.org -p 2220
+id
+mkdir /tmp/cris2
+cd /tmp/cris2
+git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
+ls 
+cd repo/
+ls
+cat README.md 
+git log
+nano key.txt
+ls -a
+cat .git
+cat .gitignore 
+git add -f key.txt 
+git commit -m "Upload key.txt"
+git push -u origin master
+
+
+NIVEL 32 - 33
+ssh bandit32bandit.labs.overthewire.org -p 2220
+WELCOME TO THE UPPERCASE SHELL
+>> $0
+$ pwd
+$ id
+$ cat /etc/bandit_pass/bandit33
+$ exit
+>> exit
+
+ssh -oHostKeyAlgorithms=+ssh-dss bandit33@bandit.labs.overthewire.org -p 2220
+ls
+id
+cat README.txt
